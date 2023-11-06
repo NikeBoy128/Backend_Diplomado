@@ -1,15 +1,3 @@
 db.sqlite3
 db.sqlite3
 projects/templates/landing.html
-projects/__pycache__
-projects/__pycache__/api.cpython-310.pyc
-projects/__pycache__/models.cpython-310.pyc
-projects/__pycache__/serializers.cpython-310.pyc
-projects/__pycache__/urls.cpython-310.pyc
-projects/__pycache__/views.cpython-310.pyc
-projects/migrations/__pycache__/0001_initial.cpython-310.pyc
-projects/migrations/0001_initial.py
-projects/__pycache__/api.cpython-310.pyc
-projects/__pycache__/models.cpython-310.pyc
-projects/__pycache__/urls.cpython-310.pyc
-projects/__pycache__/views.cpython-310.pyc
