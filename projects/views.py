@@ -15,3 +15,8 @@ class ExampleView(APIView):
             'auth': str(request.auth),  # None
         }
         return Response(content)
+
+class WhoAmIView(APIView):
+    def get(self, request):
+        user = request.user
+        return Response({"username": user.username})

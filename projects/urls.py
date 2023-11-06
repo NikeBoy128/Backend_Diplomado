@@ -1,4 +1,5 @@
 from rest_framework import routers
+from projects.views import WhoAmIView
 from .api import projectViewSet
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -17,6 +18,7 @@ router = routers.DefaultRouter()
 router.register('api/projects', projectViewSet, 'projects')
 
 urlpatterns = [
+    path('whoami/', WhoAmIView.as_view()),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
