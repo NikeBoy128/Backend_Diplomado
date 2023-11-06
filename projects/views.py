@@ -11,8 +11,8 @@ from rest_framework.decorators import authentication_classes, permission_classes
 class ExampleView(APIView):
     def get(self, request, format=None):
         content = {
-            'user': str(request.user),  # `django.contrib.auth.User` instance.
-            'auth': str(request.auth),  # None
+            'user': str(request.user),  
+            'auth': str(request.auth),  
         }
         return Response(content)
 
