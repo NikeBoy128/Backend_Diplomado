@@ -1,6 +1,7 @@
 
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from .models import Autos
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
@@ -11,4 +12,8 @@ class UserSerializer(serializers.ModelSerializer):
         user = User(**validated_data)
         user.set_password(password)  # Hash the password
         user.save()
-        return user   
+        return user 
+class AutosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Autos
+        fields = '__all__'
