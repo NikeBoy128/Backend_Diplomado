@@ -1,7 +1,8 @@
+from django import views
 from rest_framework import routers
 from projects.views import WhoAmIView
 from .api import projectViewSet
-from .views import AutosViewSet, GroupViewSet
+from .views import AutosViewSet, GroupViewSet,ViajesViewSet
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.urls import path, re_path
@@ -19,7 +20,9 @@ router = routers.DefaultRouter()
 router.register('usuarios', projectViewSet, 'projects')
 router.register('autos',AutosViewSet, 'autos')
 router.register('grupos',GroupViewSet, 'grupos')
+router.register('viajes',ViajesViewSet, 'viajes')
 urlpatterns = [
+    
     path('usuario_autenticado/', WhoAmIView.as_view()),
     re_path(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
     path('docs/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

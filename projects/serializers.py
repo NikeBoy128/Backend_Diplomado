@@ -41,3 +41,20 @@ class AutosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Autos
         fields = '__all__'
+
+from rest_framework import serializers
+from .models import Viajes, Gastos
+
+class GastosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Gastos
+        fields = ['descripcion', 'monto']
+
+class ViajesSerializer(serializers.ModelSerializer):
+    auto = serializers.StringRelatedField()
+    conductor = serializers.StringRelatedField()
+    gastos = GastosSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Viajes
+        fields = ['conductor', 'origen', 'destino', 'fecha', 'hora', 'auto', 'gastos']
