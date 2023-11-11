@@ -5,8 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.decorators import authentication_classes, permission_classes
-from .models import Autos,Viajes
-from .serializers import AutosSerializer, GroupSerializer,ViajesSerializer
+from .models import Autos,Viajes,Gastos
+from .serializers import AutosSerializer, GroupSerializer,ViajesSerializer,GastosSerializer
 from rest_framework import permissions
 from rest_framework import viewsets
 from django.contrib.auth.models import Group
@@ -44,4 +44,11 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 class ViajesViewSet(viewsets.ModelViewSet):
     queryset = Viajes.objects.all()
-    serializer_class = ViajesSerializer 
+    serializer_class = ViajesSerializer
+
+class GastosViewSet(viewsets.ModelViewSet):
+    queryset = Gastos.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = GastosSerializer

@@ -2,7 +2,7 @@ from django import views
 from rest_framework import routers
 from projects.views import WhoAmIView
 from .api import projectViewSet
-from .views import AutosViewSet, GroupViewSet,ViajesViewSet
+from .views import AutosViewSet, GroupViewSet,ViajesViewSet,GastosViewSet
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.urls import path, re_path
@@ -23,6 +23,7 @@ router.register('usuarios', projectViewSet, 'projects')
 router.register('autos',AutosViewSet, 'autos')
 router.register('grupos',GroupViewSet, 'grupos')
 router.register('viajes',ViajesViewSet, 'viajes')
+router.register('gastos',GastosViewSet, 'gastos')
 urlpatterns = [
     
     path('usuario_autenticado/', WhoAmIView.as_view()),

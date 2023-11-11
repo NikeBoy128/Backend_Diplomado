@@ -48,7 +48,7 @@ from .models import Viajes, Gastos
 class GastosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Gastos
-        fields = ['descripcion', 'monto']
+        fields = '__all__'
 
 class ViajesSerializer(serializers.ModelSerializer):
     auto = serializers.StringRelatedField()
