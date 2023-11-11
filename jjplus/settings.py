@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'jjplus.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='sqlite:///db.sqlite3',
+        default=os.getenv('DATABASE_URL', 'postgres://diplomadopg_user:B2UpoVWXBNfBDrsCTaA8NHu62MsHFYK2@dpg-cl4d9v1novjs73c2nd60-a.oregon-postgres.render.com/diplomadopg'),
         conn_max_age=600
     )
 }
