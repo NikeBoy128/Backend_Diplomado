@@ -25,8 +25,13 @@ class ExampleView(APIView):
 class WhoAmIView(APIView):
     def get(self, request):
         user = request.user
-        return Response({"username": user.username})
-
+        groups = [group.name for group in user.groups.all()]
+        return Response({
+            "username": user.username,
+            "email": user.email,
+            "is_authenticated": user.is_authenticated,
+            "roles": groups,
+        })
 class AutosViewSet(viewsets.ModelViewSet):
     queryset = Autos.objects.all()
     permission_classes = [
