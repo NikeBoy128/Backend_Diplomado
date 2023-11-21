@@ -42,8 +42,14 @@ INSTALLED_APPS = [
     'projects',
     'rest_framework',
     'drf_yasg',
-    'corsheaders'
+    'corsheaders',
+     'rest_framework_simplejwt'
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',  
