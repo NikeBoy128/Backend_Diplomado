@@ -3,6 +3,8 @@ from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import Autos
 from django.contrib.auth.models import Group
+from .models import Viajes, Gastos
+from django.contrib.auth.models import User
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:
@@ -42,19 +44,19 @@ class AutosSerializer(serializers.ModelSerializer):
         model = Autos
         fields = '__all__'
 
-from rest_framework import serializers
-from .models import Viajes, Gastos
+
 
 class GastosSerializer(serializers.ModelSerializer):
+    viaje = serializers.PrimaryKeyRelatedField(queryset=Viajes.objects.all())
     class Meta:
         model = Gastos
         fields = '__all__'
 
 class ViajesSerializer(serializers.ModelSerializer):
-    auto = serializers.StringRelatedField()
-    conductor = serializers.StringRelatedField()
+    auto = serializers.PrimaryKeyRelatedField(queryset=Autos.objects.all(), required=False)
+    conductor = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
     gastos = GastosSerializer(many=True, read_only=True)
 
     class Meta:
         model = Viajes
-        fields = ['conductor', 'origen', 'destino', 'fecha', 'hora', 'auto', 'gastos']
+        fields = ['id','conductor', 'origen', 'destino', 'fecha', 'hora', 'auto', 'gastos']
