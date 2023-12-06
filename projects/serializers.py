@@ -44,8 +44,6 @@ class AutosSerializer(serializers.ModelSerializer):
         model = Autos
         fields = '__all__'
 
-
-
 class GastosSerializer(serializers.ModelSerializer):
     viaje = serializers.PrimaryKeyRelatedField(queryset=Viajes.objects.all())
     class Meta:

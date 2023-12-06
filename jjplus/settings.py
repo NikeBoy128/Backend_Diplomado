@@ -162,3 +162,9 @@ STATICFILES_DIRS=(
     os.path.join(BASE_DIR,'static'),
 )
 STATICFILES_STORAGE='django.contrib.staticfiles.storage.StaticFilesStorage'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_ACCESS_KEY_ID = 'AKIAZ4R2ZVY5BIA3J5F5'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'jjplus'
