@@ -53,12 +53,11 @@ class GastosSerializer(serializers.ModelSerializer):
 class ViajesSerializer(serializers.ModelSerializer):
     auto = serializers.PrimaryKeyRelatedField(queryset=Autos.objects.all(), required=False)
     conductor = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
-    gastos = GastosSerializer(many=True, read_only=True)
     total = serializers.SerializerMethodField()
 
     class Meta:
         model = Viajes
-        fields = ['id','conductor', 'origen', 'destino', 'fecha', 'hora', 'auto', 'gastos', 'total']
+        fields = ['id','conductor', 'origen', 'destino', 'fecha', 'hora', 'auto', 'total']
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
