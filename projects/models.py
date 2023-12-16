@@ -5,6 +5,8 @@ class Autos(models.Model):
     cantidad_pasajeros=models.CharField(max_length=3)
     placa=models.CharField(max_length=10)
     imagen=models.ImageField(upload_to='autos/', null=True, blank=True)
+    soat = models.DateField(null=True, default=None)
+    tecnomecanica = models.DateField(null=True, default=None)
     def __str__(self):
      return self.marca
 
