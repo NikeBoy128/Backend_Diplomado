@@ -61,7 +61,7 @@ class ViajesSerializer(serializers.ModelSerializer):
 
     def to_representation(self, instance):
         representation = super().to_representation(instance)
-        representation['auto'] = instance.auto.marca  
+        representation['auto'] = instance.auto.placa
         representation['conductor'] = instance.conductor.username  
         return representation
 
